@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
 import "./App.css";
 
 function App() {
@@ -32,17 +33,18 @@ function App() {
       <div className="flex flex-col gap-4 " >
       
         <div className="flex flex-row bg-slate-50 w-9/12 p-16 rounded-2xl shadow-lg shadow-black mr-16 ">
-          
+        <Stack spacing={2} direction="row">
           <input
           
             type="text"
-            className="search-bar rounded-full "
+            className="py-3 px-6 w-[200px]"
             placeholder="Search..."
             onChange={(e) => setQuery(e.target.value)}
             value={query}
             
           />
-          <button className="rounded-full btn btn-outline btn-secondary" onClick={search}>جستجو</button>
+          <Button variant="text" className="rounded-full btn btn-outline btn-secondary" onClick={search}>🔍</Button>
+          </Stack>
         </div>
 
         {typeof weather.main != "undefined" ? (
@@ -51,7 +53,7 @@ function App() {
               <div >
                 {weather.name}, {weather.sys.country}
               </div>
-              <div>{today}</div>
+              <div className="">{today}</div>
             </div>
           <div>
           <div >{Math.round(weather.main.temp)}°c</div>
